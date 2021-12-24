@@ -13,9 +13,7 @@ import java.util.List;
 @Service
 public class PlaneService {
  private final PlaneRepository planeRepository;
-    /*      InitPlaneList planesList = new InitPlaneList();
-       List<Plane> planeData = planesList.getPlanes();
-   */
+
     @Autowired
     public PlaneService ( PlaneRepository planeRepository) {
         this.planeRepository = planeRepository;

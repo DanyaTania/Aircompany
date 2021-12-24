@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class AircompanyWebStart {
 
-    public static void main ( String[] args )
-    {
+    public static void main ( String[] args ) {
         SpringApplication.run(AircompanyWebStart.class, args);
     }
+
     @Bean
     CommandLineRunner commandLineRunner ( PlaneRepository planeRepository ) {
         return args -> {
@@ -21,7 +21,8 @@ public class AircompanyWebStart {
                     "Boeing-737", 900, 12000, 60500, 164
             );
             planeRepository.save(plane);
+
         };
     }
-    AircompanyRun aircompanyRun=new AircompanyRun();
+   // AircompanyRun aircompanyRun=new AircompanyRun();
 }
