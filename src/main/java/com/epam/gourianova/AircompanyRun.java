@@ -16,7 +16,6 @@ public  class AircompanyRun {
     Airport passengerAirport = new Airport(airport.getPassengerPlanes());
     List<? extends Plane> militaryPlanes = militaryAirport.getPlanes();
 
-    {
         System.out.println("Military airport sorted by max distance: ");
         militaryAirport.print(
                 militaryAirport.sortByMaxDistance().getMilitaryPlanes());
@@ -25,11 +24,8 @@ public  class AircompanyRun {
         passengerAirport.print(
                 passengerAirport.sortByMaxSpeed().getPassengerPlanes());
 
-         System.out.println("\nPlane with max passenger capacity: " + passengerAirport.getPassengerPlaneWithMaxPassengersCapacity() + '\n');
-
-    }
-    }
-
+        System.out.println("\nPlane with max passenger capacity: " + passengerAirport.getPassengerPlaneWithMaxPassengersCapacity() + '\n');
+     }
 }
 
 
