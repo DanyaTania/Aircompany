@@ -1,9 +1,6 @@
 package com.epam.gourianova.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 import static com.epam.gourianova.model.criteria.SearchCriteria.MilitaryTypes.BOMBER;
 import static com.epam.gourianova.model.criteria.SearchCriteria.MilitaryTypes.TRANSPORT;
@@ -12,12 +9,12 @@ import static com.epam.gourianova.model.criteria.SearchCriteria.MilitaryTypes.TR
 public class Airport {
     private final List<? extends Plane> planes;
 
-    public Airport ( List<? extends Plane> planes ) {
+    public Airport(List<? extends Plane> planes) {
         this.planes = planes;
     }
 
 
-    public List<PassengerPlane> getPassengerPlanes () {
+    public List<PassengerPlane> getPassengerPlanes() {
         List<PassengerPlane> passengerPlanes = new ArrayList<>();
         for (Plane plane : planes) {
             if (plane instanceof PassengerPlane) {
@@ -27,7 +24,7 @@ public class Airport {
         return passengerPlanes;
     }
 
-    public List<MilitaryPlane> getMilitaryPlanes () {
+    public List<MilitaryPlane> getMilitaryPlanes() {
         List<MilitaryPlane> militaryPlanes = new ArrayList<>();
         for (Plane plane : planes) {
             if (plane instanceof MilitaryPlane) {
@@ -37,7 +34,7 @@ public class Airport {
         return militaryPlanes;
     }
 
-    public PassengerPlane getPassengerPlaneWithMaxPassengersCapacity () {
+    public PassengerPlane getPassengerPlaneWithMaxPassengersCapacity() {
         List<PassengerPlane> passengerPlanes = getPassengerPlanes();
         PassengerPlane planeWithMaxCapacity = passengerPlanes.get(0);
         for (int i = 0; i < passengerPlanes.size(); i++) {
@@ -49,7 +46,7 @@ public class Airport {
     }
 
 
-    public List<MilitaryPlane> getTransportMilitaryPlanes () {
+    public List<MilitaryPlane> getTransportMilitaryPlanes() {
         List<MilitaryPlane> transportMilitaryPlanes = new ArrayList<>();
         List<MilitaryPlane> militaryPlanes = getMilitaryPlanes();
         for (MilitaryPlane militaryplane : militaryPlanes) {
@@ -60,18 +57,18 @@ public class Airport {
         return transportMilitaryPlanes;
     }
 
-    public List<MilitaryPlane> getBomberMilitaryPlanes () {
+    public List<MilitaryPlane> getBomberMilitaryPlanes() {
         List<MilitaryPlane> bomberMilitaryPlanes = new ArrayList<>();
         List<MilitaryPlane> militaryPlanes = getMilitaryPlanes();
         for (MilitaryPlane militaryplane : militaryPlanes) {
-            if (militaryplane.getType() == BOMBER) {
+            if (militaryplane.getType() ==BOMBER) {
                 bomberMilitaryPlanes.add(militaryplane);
             }
         }
         return bomberMilitaryPlanes;
     }
 
-    public List<ExperimentalPlane> getExperimentalPlanes () {
+    public List<ExperimentalPlane> getExperimentalPlanes() {
         List<ExperimentalPlane> experimentalPlanes = new ArrayList<>();
         for (Plane plane : planes) {
             if (plane instanceof ExperimentalPlane) {
@@ -81,11 +78,11 @@ public class Airport {
         return experimentalPlanes;
     }
 
-    public Airport sortByMaxDistance () {
+    public Airport sortByMaxDistance() {
 
 
         Collections.sort(planes, new Comparator<Plane>() {
-            public int compare ( Plane o1, Plane o2 ) {
+            public int compare(Plane o1, Plane o2) {
                 return o1.getMaxFlightDistance() - o2.getMaxFlightDistance();
             }
         });
@@ -98,18 +95,18 @@ public class Airport {
      *
      * @return com.epam.gourianova.bean.Airport
      */
-    public Airport sortByMaxSpeed () {
+    public Airport sortByMaxSpeed() {
         Collections.sort(planes, new Comparator<Plane>() {
-            public int compare ( Plane o1, Plane o2 ) {
+            public int compare(Plane o1, Plane o2) {
                 return o1.getMaxSpeed() - o2.getMaxSpeed();
             }
         });
         return this;
     }
 
-    public Airport sortByMaxLoadCapacity () {
+    public Airport sortByMaxLoadCapacity() {
         Collections.sort(planes, new Comparator<Plane>() {
-            public int compare ( Plane o1, Plane o2 ) {
+            public int compare(Plane o1, Plane o2) {
 
                 return o1.getMaxLoadCapacity() - o2.getMaxLoadCapacity();
             }
@@ -117,19 +114,19 @@ public class Airport {
         return this;
     }
 
-    public List<? extends Plane> getPlanes () {
+    public List<? extends Plane> getPlanes() {
         return planes;
     }
 
-    /* public void print(Collection<? extends Plane> collection) {
-         Iterator<? extends Plane> iterator = collection.iterator();
-         while (iterator.hasNext()) {
-             Plane plane = iterator.next();
-             System.out.println(plane.toString());
-         }
-     }
- */
-    public void print ( List<? extends Plane> planes ) {
+    public void print(Collection<? extends Plane> collection) {
+        Iterator<? extends Plane> iterator = collection.iterator();
+        while (iterator.hasNext()) {
+            Plane plane = iterator.next();
+            System.out.println(plane.toString());
+        }
+    }
+
+    public void print(List<? extends Plane> planes) {
 
         planes.forEach(plane -> System.out.println(plane.toString().replaceAll("^\\[|]$", "")));
 
@@ -137,7 +134,7 @@ public class Airport {
 
 
     @Override
-    public String toString () {
+    public String toString() {
         return "com.epam.gourianova.bean.Airport{" +
                 "Planes=" + planes.toString() +
                 '}';

@@ -13,7 +13,6 @@ import java.util.List;
 @Service
 public class PlaneService {
  private final PlaneRepository planeRepository;
-
     @Autowired
     public PlaneService ( PlaneRepository planeRepository) {
         this.planeRepository = planeRepository;
